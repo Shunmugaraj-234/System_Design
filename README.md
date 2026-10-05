@@ -1,32 +1,195 @@
-# React + TypeScript + Vite
+# 🛡️ STORMSHIELD
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+### High-Concurrency Resource Protection & Transaction Control Platform
 
-Currently, two official plugins are available:
+STORMSHIELD is a system designed to prevent **overselling, double booking, and transaction failures** when many users try to access limited resources at the same time.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚨 The Problem
 
-## React Compiler
+Imagine:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 10 products available
+- 100 users trying to buy them at the same time
 
-## Expanding the Oxlint configuration
+A normal system may face race conditions and accidentally sell more than the available stock.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+STORMSHIELD ensures:
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+```text
+100 Users
+    ↓
+10 Available Products
+    ↓
+10 Successful Orders
+90 Rejected
+    ↓
+0 Overselling
+💡 How STORMSHIELD Works
+Users
+  ↓
+Traffic Control
+  ↓
+Admission Control
+  ↓
+Atomic Resource Allocation
+  ↓
+Reservation
+  ↓
+Transaction
+  ↓
+Success / Safe Rejection
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+The system uses atomic database operations so that two users cannot successfully claim the same limited resource.
+
+⚡ Key Features
+🔥 High-concurrency request handling
+🛡️ Prevents overselling
+🔒 Atomic resource allocation
+🔁 Duplicate request protection
+⏳ Temporary reservations
+💳 Payment failure recovery
+📊 Real-time monitoring
+🧪 10,000-request burst simulation
+🌐 Supports multiple industries
+🌍 Real-World Use Cases
+
+STORMSHIELD can be used for:
+
+🛒 E-Commerce flash sales
+🎟️ Concert ticket booking
+✈️ Airline seat booking
+🏨 Hotel reservations
+🏥 Hospital appointment slots
+⚡ EV charging slots
+☁️ Cloud/GPU resource allocation
+🅿️ Parking slot booking
+🎯 Example
+
+For:
+
+Resources = 100
+Requests  = 10,000
+
+STORMSHIELD guarantees:
+
+Successful Allocations = 100
+Rejected Requests      = 9,900
+Oversubscription       = 0
+🛠️ Technology
+React / Vite
+Node.js / Express
+PostgreSQL
+TypeScript
+REST APIs
+🏆 Hackathon
+
+SALESTORM 2026
+
+Project Goal
+
+Protect limited resources when thousands of users compete for them at the same time.
+
+🛡️ STORMSHIELD
+
+Protect resources. Prevent overselling. Build reliable systems.
+
+🏗️ Overall Architecture
+                         ┌──────────────────────┐
+                         │        USERS         │
+                         │  1K / 10K+ Requests  │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │      FRONTEND        │
+                         │    React / Vite      │
+                         │  STORMSHIELD UI      │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │      API LAYER       │
+                         │   Node.js / Express  │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                    ┌───────────────────────────────┐
+                    │     TRAFFIC PROTECTION       │
+                    │                               │
+                    │  Rate Limiter                │
+                    │  Admission Controller        │
+                    └───────────────┬───────────────┘
+                                    │
+                                    ▼
+                    ┌───────────────────────────────┐
+                    │    RESOURCE ENGINE            │
+                    │                               │
+                    │  Atomic Allocation            │
+                    │  Reservation Management       │
+                    │  Idempotency                  │
+                    └───────────────┬───────────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │      PostgreSQL     │
+                         │                      │
+                         │  Resources           │
+                         │  Reservations        │
+                         │  Transactions        │
+                         │  Idempotency         │
+                         │  Audit Events        │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │    EVENT / OUTBOX    │
+                         │                      │
+                         │  Events & Audit      │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                    ┌───────────────────────────────┐
+                    │    TRANSACTION SERVICES      │
+                    │                               │
+                    │  Payment                      │
+                    │  Fulfillment                  │
+                    │  Notifications                │
+                    └───────────────────────────────┘
+🔄 Core Flow
+User Request
+     ↓
+Traffic Protection
+     ↓
+Admission Control
+     ↓
+Atomic Resource Allocation
+     ↓
+Reservation
+     ↓
+Transaction / Payment
+     ↓
+Confirmation
+     ↓
+Event & Audit Logging
+🛡️ Core Guarantee
+                    STORMSHIELD
+                         │
+                         ▼
+              ┌─────────────────────┐
+              │ Limited Resource    │
+              │      Capacity       │
+              └──────────┬──────────┘
+                         │
+                         ▼
+                 Atomic Allocation
+                         │
+             ┌───────────┴───────────┐
+             ▼                       ▼
+         AVAILABLE               EXHAUSTED
+             │                       │
+             ▼                       ▼
+          SUCCESS                 REJECT
+
+Main principle:
+
+Confirmed + Reserved ≤ Total Capacity
